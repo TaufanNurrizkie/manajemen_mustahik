@@ -120,101 +120,86 @@
     </style>
 </head>
 
-<body class="bg-gray-50 min-h-screen overflow-x-hidden">
-    <div class="flex min-h-screen">
-        <!-- Sidebar -->
-        <aside id="sidebar"
-            class="w-72 sidebar-gradient text-white flex flex-col shadow-2xl relative z-10 transition-all duration-300 ease-in-out">
+<body class="bg-gray-50 overflow-x-hidden">
+    <!-- Sidebar tetap -->
+    <aside id="sidebar"
+        class="fixed top-0 left-0 h-screen w-72 sidebar-gradient text-white flex flex-col shadow-2xl z-10 transition-all duration-300 ease-in-out">
 
-            <!-- Header -->
-            <div class="p-6 border-b border-white/10">
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center glass-effect">
-                        <i class="fas fa-cogs text-lg"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-bold">Admin Panel</h1>
-                        <p class="text-xs text-white/70">Management Mustahik</p>
+        <!-- Header -->
+        <div class="p-6 border-b border-white/10">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center glass-effect">
+                    <i class="fas fa-cogs text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">Admin Panel</h1>
+                    <p class="text-xs text-white/70">Management Mustahik</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-4 py-6 overflow-y-auto scrollbar-thin">
+            <div class="space-y-6">
+                <div class="animate-fade-in">
+                    <h3 class="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3 px-3">
+                        Manajemen
+                    </h3>
+                    <div class="space-y-1">
+                        <a href="{{ route('mustahik.index') }}"
+                            class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white group">
+                            <i class="fas fa-map-marked-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
+                            <span>Daftar Area</span>
+                        </a>
+                        <a href="{{ route('mustahik.data') }}"
+                            class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white group">
+                            <i class="fas fa-calendar-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
+                            <span>Data Mustahik</span>
+                        </a>
                     </div>
                 </div>
             </div>
+        </nav>
 
-            <!-- Navigation -->
-            <nav class="flex-1 px-4 py-6 overflow-y-auto scrollbar-thin">
-                <div class="space-y-6">
-                    <!-- Management Section -->
-                    <div class="animate-fade-in">
-                        <h3 class="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3 px-3">
-                            Manajemen
-                        </h3>
-                        <div class="space-y-1">
-                            <a href="{{ route('mustahik.index') }}"
-                                class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white active:bg-white/15 active:text-white group">
-                                <i
-                                    class="fas fa-map-marked-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
-                                <span>Daftar Area</span>
-                            </a>
-
-                            <a href="{{ route('mustahik.data') }}"
-                                class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white group">
-                                <i
-                                    class="fas fa-calendar-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
-                                <span>Data Mustahik</span>
-                            </a>
-
-
-                        </div>
+        <!-- Footer -->
+        <div class="p-4 border-t border-white/10 bg-black/10">
+            <div class="flex items-center gap-3 mb-4 p-3 rounded-lg glass-effect hover:bg-white/10 transition-colors">
+                <a href="index.php?action=profile"
+                    class="flex items-center gap-3 w-full text-white hover:text-white no-underline">
+                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                        A
                     </div>
-                </div>
-            </nav>
-
-            <!-- Footer -->
-            <div class="p-4 border-t border-white/10 bg-black/10">
-                <!-- User Profile -->
-                <div
-                    class="flex items-center gap-3 mb-4 p-3 rounded-lg glass-effect hover:bg-white/10 transition-colors">
-                    <a href="index.php?action=profile"
-                        class="flex items-center gap-3 w-full text-white hover:text-white no-underline">
-                        <div
-                            class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                            A
-                        </div>
-                        <div class="flex-1">
-                            <h6 class="text-sm font-semibold mb-0">Admin</h6>
-                            <small class="text-xs text-white/70">Administrator</small>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Logout Button -->
-                <a href="index.php?action=logout"
-                    class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
-                    <i class="fas fa-sign-out-alt text-sm"></i>
-                    <span>Logout</span>
+                    <div class="flex-1">
+                        <h6 class="text-sm font-semibold mb-0">Admin</h6>
+                        <small class="text-xs text-white/70">Administrator</small>
+                    </div>
                 </a>
             </div>
-        </aside>
 
+            <a href="index.php?action=logout"
+                class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+                <i class="fas fa-sign-out-alt text-sm"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
 
+    <!-- Tombol Mobile -->
+    <button id="mobile-menu-toggle"
+        class="fixed top-4 left-4 z-50 lg:hidden bg-primary-600 text-white p-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-toggle"
-            class="fixed top-4 left-4 z-50 lg:hidden bg-primary-600 text-white p-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors">
-            <i class="fas fa-bars"></i>
-        </button>
+    <!-- Konten Utama -->
+    <main class="ml-72 p-6 min-h-screen overflow-y-auto">
+        @yield('content')
+    </main>
 
-        <main class="flex-1 p-6">
-            @yield('content')
-        </main>
-
-    </div>
-
-    <!-- Mobile Overlay -->
+    <!-- Overlay Mobile -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set active navigation link
+        document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('nav a');
             const currentPage = new URLSearchParams(window.location.search).get('action') || 'area';
 
@@ -227,22 +212,20 @@
                 }
             });
 
-            // Mobile menu functionality
             const mobileToggle = document.getElementById('mobile-menu-toggle');
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobile-overlay');
 
-            mobileToggle.addEventListener('click', function() {
+            mobileToggle.addEventListener('click', function () {
                 sidebar.classList.toggle('-translate-x-full');
                 overlay.classList.toggle('hidden');
             });
 
-            overlay.addEventListener('click', function() {
+            overlay.addEventListener('click', function () {
                 sidebar.classList.add('-translate-x-full');
                 overlay.classList.add('hidden');
             });
 
-            // Handle responsive behavior
             function handleResize() {
                 if (window.innerWidth >= 1024) {
                     sidebar.classList.remove('-translate-x-full');
@@ -253,7 +236,7 @@
             }
 
             window.addEventListener('resize', handleResize);
-            handleResize(); // Initial check
+            handleResize();
         });
     </script>
 </body>
