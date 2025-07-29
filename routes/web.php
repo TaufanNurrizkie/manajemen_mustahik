@@ -5,17 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MustahikController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/mustahik', [MustahikController::class, 'index'])->name('mustahik.index');
+Route::get('/mustahik', [MustahikController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/data', [MustahikController::class, 'dat'])->name('mustahik.data');
 Route::get('/mustahik/data', [MustahikController::class, 'data']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
