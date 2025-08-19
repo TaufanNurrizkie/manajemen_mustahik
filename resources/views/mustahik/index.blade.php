@@ -6,7 +6,7 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <div id="map" style="width: 100%; height: 500px; margin-bottom: 20px;"></div>
+    <div id="map" style="width: 100%; height: 500px; margin-bottom: 20px; z-index: 10;"></div>
 
     <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 p-8 animate-fade-in">
         <div class="filters grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -181,13 +181,13 @@
                         ${m.status === 'sudah_dibantu' ? '✔ Sudah Dibantu' : '❌ Belum Dibantu'}
                     </div>
                     <div class="pt-2 space-y-1">
-                        <a href="https://www.google.com/maps?q=${m.latitude},${m.longitude}" 
-                           target="_blank" 
+                        <a href="https://www.google.com/maps?q=${m.latitude},${m.longitude}"
+                           target="_blank"
                            class="block text-blue-600 hover:underline">
                             📍 Lihat di Google Maps
                         </a>
-                        <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${m.latitude},${m.longitude}" 
-                           target="_blank" 
+                        <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${m.latitude},${m.longitude}"
+                           target="_blank"
                            class="block text-green-600 hover:underline">
                             👁️ Lihat Street View
                         </a>

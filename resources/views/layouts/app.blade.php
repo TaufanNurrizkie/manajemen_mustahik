@@ -121,122 +121,115 @@
 </head>
 
 <body class="bg-gray-50 overflow-x-hidden">
-    <!-- Sidebar tetap -->
-    <aside id="sidebar"
-        class="fixed top-0 left-0 h-screen w-72 sidebar-gradient text-white flex flex-col shadow-2xl z-10 transition-all duration-300 ease-in-out">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-green-600 via-green-700 to-emerald-800 shadow-lg fixed w-full z-40">
+        <div class="h-16 flex items-center px-6">
+            <!-- Tombol Hamburger -->
+            <button id="sidebarToggle" class="text-white focus:outline-none mr-4">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
 
-        <!-- Header -->
-        <div class="p-6 border-b border-white/10">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center glass-effect">
-                    <i class="fas fa-cogs text-lg"></i>
+            <!-- Brand -->
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-green-800 font-bold text-sm">M</span>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold">Admin Panel</h1>
-                    <p class="text-xs text-white/70">Management Mustahik</p>
+                <div class="text-2xl font-bold text-white tracking-tight">
+                    Zyra
                 </div>
             </div>
         </div>
+    </nav>
 
-        <!-- Navigation -->
-        <nav class="flex-1 px-4 py-6 overflow-y-auto scrollbar-thin">
-            <div class="space-y-6">
-                <div class="animate-fade-in">
+    <!-- Sidebar (overlay full screen) -->
+    <div id="sidebar"
+        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+
+        <!-- Background overlay -->
+        <div id="sidebarOverlay" class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Sidebar content -->
+        <aside
+            class="relative w-72 h-full bg-gradient-to-b from-green-600 via-green-700 to-emerald-800 text-white shadow-2xl flex flex-col">
+
+            <!-- Header -->
+            <div class="p-6 border-b border-white/10">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-cogs text-green-800 text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Admin Panel</h1>
+                        <p class="text-xs text-white/70">Management Mustahik</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 px-4 py-6 overflow-y-auto scrollbar-thin">
+                <div class="space-y-6">
                     <h3 class="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3 px-3">
                         Manajemen
                     </h3>
                     <div class="space-y-1">
                         <a href="{{ route('dashboard') }}"
-                            class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white group">
-                            <i class="fas fa-map-marked-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
+                            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white transition">
+                            <i class="fas fa-map-marked-alt w-5 text-center"></i>
                             <span>Daftar Area</span>
                         </a>
                         <a href="{{ route('mustahik.data') }}"
-                            class="nav-link-hover flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:text-white group">
-                            <i class="fas fa-calendar-alt w-5 text-center group-hover:scale-110 transition-transform"></i>
+                            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/90 hover:bg-white/10 hover:text-white transition">
+                            <i class="fas fa-calendar-alt w-5 text-center"></i>
                             <span>Data Mustahik</span>
                         </a>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <!-- Footer -->
-        <div class="p-4 border-t border-white/10 bg-black/10">
-            <div class="flex items-center gap-3 mb-4 p-3 rounded-lg glass-effect hover:bg-white/10 transition-colors">
-                <a href="index.php?action=profile"
-                    class="flex items-center gap-3 w-full text-white hover:text-white no-underline">
-                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                        A
-                    </div>
-                    <div class="flex-1">
-                        <h6 class="text-sm font-semibold mb-0">Admin</h6>
-                        <small class="text-xs text-white/70">Administrator</small>
-                    </div>
+            <!-- Footer -->
+            <div class="p-4 border-t border-white/10 bg-white/5">
+                <div class="flex items-center gap-3 mb-4 p-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <a href="index.php?action=profile" class="flex items-center gap-3 w-full text-white no-underline">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                            A
+                        </div>
+                        <div class="flex-1">
+                            <h6 class="text-sm font-semibold mb-0">Admin</h6>
+                            <small class="text-xs text-white/70">Administrator</small>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="index.php?action=logout"
+                    class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+                    <i class="fas fa-sign-out-alt text-sm"></i>
+                    <span>Logout</span>
                 </a>
             </div>
+        </aside>
+    </div>
 
-            <a href="index.php?action=logout"
-                class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
-                <i class="fas fa-sign-out-alt text-sm"></i>
-                <span>Logout</span>
-            </a>
-        </div>
-    </aside>
-
-    <!-- Tombol Mobile -->
-    <button id="mobile-menu-toggle"
-        class="fixed top-4 left-4 z-50 lg:hidden bg-primary-600 text-white p-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Konten Utama -->
-    <main class="ml-72 p-6 min-h-screen overflow-y-auto">
+    <!-- Konten utama -->
+    <main class="pt-20 p-6 flex-1 min-h-screen">
         @yield('content')
     </main>
 
-    <!-- Overlay Mobile -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('nav a');
-            const currentPage = new URLSearchParams(window.location.search).get('action') || 'area';
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById("sidebar");
+            const sidebarToggle = document.getElementById("sidebarToggle");
+            const sidebarOverlay = document.getElementById("sidebarOverlay");
 
-            navLinks.forEach(link => {
-                const linkAction = new URL(link.href).searchParams.get('action');
-                if (linkAction === currentPage) {
-                    link.classList.add('active', 'bg-white/15', 'text-white');
-                } else {
-                    link.classList.remove('active', 'bg-white/15', 'text-white');
-                }
+            // buka sidebar
+            sidebarToggle.addEventListener("click", () => {
+                sidebar.classList.toggle("-translate-x-full");
             });
 
-            const mobileToggle = document.getElementById('mobile-menu-toggle');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('mobile-overlay');
-
-            mobileToggle.addEventListener('click', function () {
-                sidebar.classList.toggle('-translate-x-full');
-                overlay.classList.toggle('hidden');
+            // klik overlay tutup sidebar
+            sidebarOverlay.addEventListener("click", () => {
+                sidebar.classList.add("-translate-x-full");
             });
-
-            overlay.addEventListener('click', function () {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-            });
-
-            function handleResize() {
-                if (window.innerWidth >= 1024) {
-                    sidebar.classList.remove('-translate-x-full');
-                    overlay.classList.add('hidden');
-                } else {
-                    sidebar.classList.add('-translate-x-full');
-                }
-            }
-
-            window.addEventListener('resize', handleResize);
-            handleResize();
         });
     </script>
 </body>
